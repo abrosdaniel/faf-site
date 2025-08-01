@@ -1,4 +1,5 @@
 "use client";
+
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { useScroll } from "@/hooks/use-scroll-screen";
 import { cn } from "@/lib/utils";
@@ -7,6 +8,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
+  SheetTitle,
   SheetContent,
   SheetTrigger,
   SheetClose,
@@ -90,6 +92,7 @@ export default function Menu() {
                 side="right"
                 className="bg-foreground border-0 w-screen font-unbounded flex flex-col gap-14"
               >
+                <SheetTitle className="sr-only"></SheetTitle>
                 <div className="relative flex flex-col justify-center items-center pt-7 px-4">
                   <div className="w-full h-5 border-t border-x" />
                   <SheetClose asChild>

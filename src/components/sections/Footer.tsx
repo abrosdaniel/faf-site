@@ -1,4 +1,5 @@
 "use client";
+
 import { useMediaQuery } from "@/hooks/use-media-query";
 
 import Link from "next/link";
@@ -93,7 +94,7 @@ export default function Footer() {
       </div>
       <div className="bg-foreground relative z-10 border-t border-x border-inherit flex flex-col md:flex-row items-center gap-5 text-xs uppercase text-[#91918A] py-6 mt-3 md:mt-5 md:justify-between md:px-10 md:mx-10">
         <p>&copy; {new Date().getFullYear()} ФУТБОЛЬНОЕ АГЕНТСТВО FAF</p>
-        <Link href="/terms">Политика конфиденциальности</Link>
+        <Link href="/term">Политика конфиденциальности</Link>
         <Link href="https://t.me/a_dari">Дизайн сайта</Link>
         <Link
           href="https://abros.dev"

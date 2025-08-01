@@ -95,4 +95,57 @@ function Whatsapp({ className }: { className?: string }) {
   );
 }
 
-export { Arrow, MenuBurger, Cross, Telegram, Whatsapp };
+function Mail({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 22 14"
+      fill="none"
+      className={cn("transition-all", className)}
+    >
+      <rect
+        x="3.03125"
+        y="0.599976"
+        width="16.3429"
+        height="1.48571"
+        fill="currentColor"
+      />
+      <rect
+        x="3.03125"
+        y="11.7429"
+        width="16.3429"
+        height="1.48571"
+        fill="currentColor"
+      />
+      <rect
+        x="20.1133"
+        y="13.2286"
+        width="12.6286"
+        height="1.48571"
+        transform="rotate(-90 20.1133 13.2286)"
+        fill="currentColor"
+      />
+      <rect
+        x="0.800781"
+        y="13.2286"
+        width="12.6286"
+        height="1.48571"
+        transform="rotate(-90 0.800781 13.2286)"
+        fill="currentColor"
+      />
+      <rect
+        width="8.80231"
+        height="1.48571"
+        transform="matrix(-0.841227 -0.540682 0.460389 -0.887717 11.1797 9.8559)"
+        fill="currentColor"
+      />
+      <rect
+        width="8.80034"
+        height="1.48571"
+        transform="matrix(0.841227 -0.540682 -0.460389 -0.887717 11.1855 9.86371)"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+export { Arrow, MenuBurger, Cross, Telegram, Whatsapp, Mail };

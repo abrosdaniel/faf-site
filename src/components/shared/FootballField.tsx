@@ -35,4 +35,27 @@ function CircleLine({
   );
 }
 
-export { FooterLine, CircleLine };
+function PageTopLine({
+  className,
+  numeric,
+}: {
+  className?: string;
+  numeric?: string;
+}) {
+  return (
+    <div
+      className={cn(
+        "flex flex-col gap-2.5 md:gap-5 justify-center items-center h-full w-full",
+        className
+      )}
+    >
+      {numeric ? (
+        <p className="text-sm md:text-base text-accent">{`| ${numeric} |`}</p>
+      ) : null}
+      <div className="w-full border-t border-inherit" />
+      <div className="border-l border-inherit h-6 md:h-13" />
+    </div>
+  );
+}
+
+export { FooterLine, CircleLine, PageTopLine };
