@@ -72,25 +72,27 @@ export default function Term() {
 
   return (
     <main>
-      <div className="relative w-full aspect-[9/16] md:aspect-video">
-        <div className="absolute top-0 left-0 bg-gradient-to-b from-foreground/90 via-transparent to-transparent z-10 w-full h-1/5" />
-        <div className="absolute bottom-0 left-0 bg-gradient-to-t from-foreground/90 via-transparent to-transparent z-10 w-full h-4/5 md:h-2/5" />
-        <Image
-          src={
-            isMobile
-              ? `${directus.url}assets/${terms.cover_mob}`
-              : `${directus.url}assets/${terms.cover_desk}`
-          }
-          alt="Terms"
-          fill
-          sizes="100%"
-          className="w-full h-auto object-cover"
-        />
-      </div>
-      <div className="px-4 md:px-10 py-14 bg-foreground">
-        <h1 className="text-xl md:text-6xl font-bold font-unbounded uppercase text-background">
-          политика конфиденциальности
-        </h1>
+      <div className="h-screen flex flex-col">
+        <div className="relative w-full flex-1">
+          <div className="absolute top-0 left-0 bg-gradient-to-b from-foreground/90 via-transparent to-transparent z-10 w-full h-1/5" />
+          <div className="absolute bottom-0 left-0 bg-gradient-to-t from-foreground/90 via-transparent to-transparent z-10 w-full h-4/5 md:h-2/5" />
+          <Image
+            src={
+              isMobile
+                ? `${directus.url}assets/${terms.cover_mob}`
+                : `${directus.url}assets/${terms.cover_desk}`
+            }
+            alt="Terms"
+            fill
+            sizes="100%"
+            className="w-full h-auto object-cover"
+          />
+        </div>
+        <div className="px-4 md:px-10 py-14 bg-foreground flex-shrink-0">
+          <h1 className="text-xl md:text-6xl font-black font-unbounded uppercase text-background">
+            политика конфиденциальности
+          </h1>
+        </div>
       </div>
       <div className="px-4 md:px-10 py-14 md:py-10 space-y-10">
         <Breadcrumb className="pb-0 md:pb-10">

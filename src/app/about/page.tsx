@@ -155,28 +155,30 @@ export default function Term() {
 
   return (
     <main>
-      <div className="relative w-full aspect-[9/16] md:aspect-video">
-        <div className="absolute top-0 left-0 bg-gradient-to-b from-foreground/90 via-transparent to-transparent z-10 w-full h-1/5" />
-        <div className="absolute bottom-0 left-0 bg-gradient-to-t from-foreground/90 via-transparent to-transparent z-10 w-full h-4/5 md:h-2/5" />
-        <Image
-          src={
-            isMobile
-              ? `${directus.url}assets/${about.cover_mob}`
-              : `${directus.url}assets/${about.cover_desk}`
-          }
-          alt="About"
-          fill
-          sizes="100%"
-          className="w-full h-auto object-cover"
-        />
-      </div>
-      <div className="flex flex-col md:flex-row gap-6 md:gap-14 items-start md:items-center justify-between px-4 md:px-10 py-14 bg-foreground">
-        <h1 className="text-5xl md:text-6xl font-bold font-unbounded uppercase text-background">
-          О нас
-        </h1>
-        <h2 className="text-xl font-bold font-unbounded uppercase text-background">
-          настоящее агентство — это не просто посредник, а партнёр и опора
-        </h2>
+      <div className="h-screen flex flex-col">
+        <div className="relative w-full flex-1">
+          <div className="absolute top-0 left-0 bg-gradient-to-b from-foreground/90 via-transparent to-transparent z-10 w-full h-1/5" />
+          <div className="absolute bottom-0 left-0 bg-gradient-to-t from-foreground/90 via-transparent to-transparent z-10 w-full h-4/5 md:h-2/5" />
+          <Image
+            src={
+              isMobile
+                ? `${directus.url}assets/${about.cover_mob}`
+                : `${directus.url}assets/${about.cover_desk}`
+            }
+            alt="About"
+            fill
+            sizes="100%"
+            className="w-full h-auto object-cover"
+          />
+        </div>
+        <div className="flex flex-shrink-0 flex-col md:flex-row gap-6 md:gap-14 items-start md:items-center justify-between px-4 md:px-10 py-14 bg-foreground">
+          <h1 className="text-5xl md:text-6xl font-black font-unbounded uppercase text-background">
+            О нас
+          </h1>
+          <h2 className="text-xl font-bold font-unbounded uppercase text-background">
+            настоящее агентство — это не просто посредник, а партнёр и опора
+          </h2>
+        </div>
       </div>
       <Breadcrumb className="px-4 md:px-10 py-14 pb-10 bg-foreground">
         <BreadcrumbList className="uppercase text-sm">

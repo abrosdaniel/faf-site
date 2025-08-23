@@ -5,8 +5,8 @@ import { useQuery } from "@tanstack/react-query";
 import directus from "@/services/directus";
 import { readItem } from "@directus/sdk";
 import { notFound } from "next/navigation";
-import Link from "next/link";
 
+import Link from "next/link";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -76,28 +76,30 @@ export default function Team() {
 
   return (
     <main>
-      <div className="relative w-full aspect-[9/16] md:aspect-video">
-        <div className="absolute top-0 left-0 bg-gradient-to-b from-foreground/90 via-transparent to-transparent z-10 w-full h-1/5" />
-        <div className="absolute bottom-0 left-0 bg-gradient-to-t from-foreground/90 via-transparent to-transparent z-10 w-full h-4/5 md:h-2/5" />
-        <Image
-          src={
-            isMobile
-              ? `${directus.url}assets/${agency.cover_mob}`
-              : `${directus.url}assets/${agency.cover_desk}`
-          }
-          alt="Terms"
-          fill
-          sizes="100%"
-          className="w-full h-auto object-cover"
-        />
-      </div>
-      <div className="flex flex-col md:flex-row gap-6 md:gap-14 items-start md:items-end justify-between px-4 md:px-10 py-14 bg-foreground">
-        <h1 className="text-5xl md:text-7xl font-bold font-unbounded uppercase text-background">
-          Команда агентства
-        </h1>
-        <h2 className="text-xl font-bold font-unbounded uppercase text-background">
-          Наши агенты, менеджеры и координаторы
-        </h2>
+      <div className="h-screen flex flex-col">
+        <div className="relative w-full flex-1">
+          <div className="absolute top-0 left-0 bg-gradient-to-b from-foreground/90 via-transparent to-transparent z-10 w-full h-1/5" />
+          <div className="absolute bottom-0 left-0 bg-gradient-to-t from-foreground/90 via-transparent to-transparent z-10 w-full h-4/5 md:h-2/5" />
+          <Image
+            src={
+              isMobile
+                ? `${directus.url}assets/${agency.cover_mob}`
+                : `${directus.url}assets/${agency.cover_desk}`
+            }
+            alt="Team"
+            fill
+            sizes="100%"
+            className="w-full h-auto object-cover"
+          />
+        </div>
+        <div className="flex flex-shrink-0 flex-col md:flex-row gap-6 md:gap-14 items-start md:items-end justify-between px-4 md:px-10 py-14 bg-foreground">
+          <h1 className="text-5xl md:text-7xl font-black font-unbounded uppercase text-background">
+            Команда агентства
+          </h1>
+          <h2 className="text-xl font-bold font-unbounded uppercase text-background">
+            Наши агенты, менеджеры и координаторы
+          </h2>
+        </div>
       </div>
       <div className="flex flex-col gap-10 py-10">
         <Breadcrumb className="px-4 md:px-10">
@@ -119,9 +121,9 @@ export default function Team() {
           </BreadcrumbList>
         </Breadcrumb>
         <PageTopLine className="border-accent px-4 md:px-10" />
-        <TeamAgency data={agency} />
+        <TeamAgency data={agency.peoples} />
         <Link
-          href="/form"
+          href="mailto:info@f-a-f.ru?subject=Заявка на вступление в команду FAF&body=Здравствуйте!%0A%0AМеня зовут [ваше имя], и я хотел бы стать частью команды FAF.%0A%0AМой опыт:%0A-%0A-%0A-%0A%0AКонтактная информация:%0AТелефон:%0AEmail:%0A%0AТак же прикрепляю свое подробное резюме ниже.%0A%0AС уважением, [ваше имя]"
           className="mx-auto md:ml-auto md:mr-0 w-fit block md:px-10"
         >
           <Button

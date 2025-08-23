@@ -74,7 +74,7 @@ export default function TeamAgency({
 
   return (
     <div className={cn("flex flex-col", className)}>
-      {data.peoples.map((person: any) => (
+      {data.map((person: any) => (
         <PersonItems
           key={person.id}
           src={`${directus.url}assets/${person.photo}`}
@@ -85,7 +85,7 @@ export default function TeamAgency({
           mail={person.mail}
           className={
             isMobile
-              ? data.peoples.indexOf(person) % 2 === 0
+              ? data.indexOf(person) % 2 === 0
                 ? "bg-foreground text-background [&_p]:text-primary [&_a]:text-primary"
                 : "bg-background text-foreground [&_p]:text-accent [&_a]:text-accent"
               : "hover:bg-foreground hover:text-background [&_p]:text-accent hover:[&_p]:text-primary [&_a]:text-accent hover:[&_a]:text-primary"
