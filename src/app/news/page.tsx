@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { useQuery } from "@tanstack/react-query";
 import directus from "@/services/directus";
@@ -26,7 +26,7 @@ import { SlashIcon } from "lucide-react";
 import { Arrow } from "@/assets/icons/Icons";
 import { SearchIcon } from "lucide-react";
 
-export default function News() {
+function NewsContent() {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const searchParams = useSearchParams();
   const [filter, setFilter] = useState("all");
@@ -112,6 +112,7 @@ export default function News() {
       </ToggleGroupItem>
     );
   };
+
   return (
     <main>
       <div className="h-screen flex flex-col">
@@ -200,5 +201,44 @@ export default function News() {
       </div>
       <div className="bg-background w-full h-16 md:h-26" />
     </main>
+  );
+}
+
+export default function News() {
+  return (
+    <Suspense
+      fallback={
+        <div className="w-full md:max-w-6xl md:mx-auto opacity-30">
+          <div className="min-w-full min-h-full space-y-4">
+            <Skeleton className="w-80 h-10 mx-auto" />
+            {Array.from({ length: 10 }).map((_, index) => (
+              <div key={index} className="space-y-3">
+                <Skeleton className="w-full h-5" />
+                <Skeleton className="w-10/12 h-5" />
+                <br />
+                <Skeleton className="w-full h-5" />
+                <Skeleton className="w-10/12 h-5" />
+                <br />
+                <Skeleton className="w-full h-5" />
+                <Skeleton className="w-2/12 h-5" />
+                <br />
+                <Skeleton className="w-11/12 h-5" />
+                <br />
+                <Skeleton className="w-full h-5" />
+                <Skeleton className="w-full h-5" />
+                <Skeleton className="w-full h-5" />
+                <Skeleton className="w-10/12 h-5" />
+              </div>
+            ))}
+            <div className="flex flex-row justify-between items-start text-xs md:text-sm text-muted-foreground mt-24">
+              <Skeleton className="w-1/5 h-5" />
+              <Skeleton className="w-1/5 h-5" />
+            </div>
+          </div>
+        </div>
+      }
+    >
+      <NewsContent />
+    </Suspense>
   );
 }
