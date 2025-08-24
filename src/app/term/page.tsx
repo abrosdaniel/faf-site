@@ -110,16 +110,17 @@ export default function Term() {
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
-        <PageTopLine className="border-accent" />
+        <PageTopLine className="border-accent" classLine="bg-accent" />
         <div
           dangerouslySetInnerHTML={{ __html: terms.article }}
           className="[&_h2]:text-xl [&_a]:text-accent [&_ul]:list-disc [&_ul]:pl-4 [&_ul]:space-y-2 [&_ul]:mt-4 [&_ol]:list-decimal [&_ol]:pl-4 [&_ol]:space-y-2 [&_ol]:mt-4 space-y-8"
         />
-        <div className="flex flex-row justify-end text-muted-foreground gap-2 mt-24 text-sm">
+        <div className="flex flex-row justify-start text-muted-foreground gap-2 mt-24 text-sm">
           <p>Обновлено:</p>
           <p>{new Date(terms.date_updated).toLocaleDateString()}</p>
         </div>
       </div>
+      <div className="bg-background w-full h-16 md:h-26" />
     </main>
   );
 }

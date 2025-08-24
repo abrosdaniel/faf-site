@@ -6,6 +6,8 @@ import Image from "next/image";
 import NewsPosts from "@/components/sections/News";
 import { PageTopLine } from "@/components/shared/FootballField";
 
+export const dynamic = "force-dynamic";
+
 type Props = {
   params: Promise<{
     id: string;
@@ -57,7 +59,10 @@ export default async function NewsArticlePage({ params }: Props) {
         />
       </div>
       <div className="flex flex-col gap-10 py-10">
-        <PageTopLine className="border-accent px-4 md:px-10" />
+        <PageTopLine
+          className="border-accent px-4 md:px-10"
+          classLine="bg-accent"
+        />
         <h1 className="text-xl md:text-[40px] text-center md:text-left font-bold font-unbounded uppercase text-foreground mx-auto md:mx-0 px-4 md:px-10">
           {post.title}
         </h1>
@@ -70,7 +75,10 @@ export default async function NewsArticlePage({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: post.article }}
         />
       </div>
-      <PageTopLine className="border-accent px-4 md:px-10 mb-10" />
+      <PageTopLine
+        className="border-accent px-4 md:px-10 mb-10"
+        classLine="bg-accent"
+      />
       <p className="text-2xl text-center md:text-left font-bold font-unbounded uppercase text-foreground mx-auto md:mx-0 px-4 md:px-10 mb-5 md:mb-10">
         Другие новости
       </p>
@@ -79,6 +87,7 @@ export default async function NewsArticlePage({ params }: Props) {
         type="recommend"
         className="px-4 md:px-10 mb-10"
       />
+      <div className="bg-background w-full h-16 md:h-26" />
     </main>
   );
 }

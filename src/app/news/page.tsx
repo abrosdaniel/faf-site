@@ -131,16 +131,16 @@ export default function News() {
           />
         </div>
         <div className="flex flex-shrink-0 flex-col md:flex-row gap-6 md:gap-14 items-start md:items-end justify-between px-4 md:px-10 py-14 bg-foreground">
-          <h1 className="text-5xl md:text-7xl font-black font-unbounded uppercase text-background">
+          <h1 className="text-5xl md:text-[90px] font-black font-unbounded uppercase text-background">
             Новости
           </h1>
-          <h2 className="text-xl font-bold font-unbounded uppercase text-background">
+          <h2 className="text-base md:text-[26px] font-bold font-unbounded uppercase text-background max-w-[650px]">
             Актуальные события и достижения наших игроков
           </h2>
         </div>
       </div>
       <div className="flex flex-col gap-10 py-10">
-        <Breadcrumb className="px-4 md:px-10">
+        <Breadcrumb className="px-4 md:px-10 md:mb-10">
           <BreadcrumbList className="uppercase text-sm">
             <BreadcrumbItem>
               <BreadcrumbLink
@@ -184,8 +184,11 @@ export default function News() {
             <TabsItem value="Медиа" title="Медиа" />
           </ToggleGroup>
         </div>
-        <PageTopLine className="border-accent px-4 md:px-10" />
-        <h2 className="text-5xl md:text-7xl font-semibold font-unbounded uppercase text-foreground mx-auto md:mx-0 px-4 md:px-10">
+        <PageTopLine
+          className="border-accent px-4 md:px-10"
+          classLine="bg-accent"
+        />
+        <h2 className="text-4xl md:text-7xl font-bold font-unbounded uppercase text-foreground mx-auto md:mx-0 px-4 md:px-10">
           Новости
         </h2>
         <NewsPosts
@@ -195,6 +198,7 @@ export default function News() {
           className="px-4 md:px-10"
         />
       </div>
+      <div className="bg-background w-full h-16 md:h-26" />
     </main>
   );
 }

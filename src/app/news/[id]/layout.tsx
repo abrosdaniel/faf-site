@@ -1,6 +1,8 @@
 import directus from "@/services/directus";
 import { readItems } from "@directus/sdk";
 
+export const dynamic = "force-dynamic";
+
 type Props = {
   params: Promise<{
     slug: string;

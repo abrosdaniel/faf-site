@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { PageTopLine } from "@/components/shared/FootballField";
 import TeamAgency from "@/components/sections/TeamAgency";
+import { LinkText } from "@/components/shared/Text";
 
 import { SlashIcon } from "lucide-react";
 import { Arrow } from "@/assets/icons/Icons";
@@ -92,17 +93,17 @@ export default function Team() {
             className="w-full h-auto object-cover"
           />
         </div>
-        <div className="flex flex-shrink-0 flex-col md:flex-row gap-6 md:gap-14 items-start md:items-end justify-between px-4 md:px-10 py-14 bg-foreground">
-          <h1 className="text-5xl md:text-7xl font-black font-unbounded uppercase text-background">
+        <div className="flex flex-shrink-0 flex-col md:flex-row gap-6 items-start md:items-end justify-between px-4 md:px-10 py-14 bg-foreground">
+          <h1 className="text-5xl md:text-[90px] font-black font-unbounded uppercase text-background">
             Команда агентства
           </h1>
-          <h2 className="text-xl font-bold font-unbounded uppercase text-background">
+          <h2 className="text-base md:text-[26px] font-bold font-unbounded uppercase text-background max-w-[560px]">
             Наши агенты, менеджеры и координаторы
           </h2>
         </div>
       </div>
       <div className="flex flex-col gap-10 py-10">
-        <Breadcrumb className="px-4 md:px-10">
+        <Breadcrumb className="px-4 md:px-10 md:mb-10">
           <BreadcrumbList className="uppercase text-sm">
             <BreadcrumbItem>
               <BreadcrumbLink
@@ -120,7 +121,10 @@ export default function Team() {
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
-        <PageTopLine className="border-accent px-4 md:px-10" />
+        <PageTopLine
+          className="border-accent px-4 md:px-10"
+          classLine="bg-accent"
+        />
         <TeamAgency data={agency.peoples} />
         <Link
           href="mailto:info@f-a-f.ru?subject=Заявка на вступление в команду FAF&body=Здравствуйте!%0A%0AМеня зовут [ваше имя], и я хотел бы стать частью команды FAF.%0A%0AМой опыт:%0A-%0A-%0A-%0A%0AКонтактная информация:%0AТелефон:%0AEmail:%0A%0AТак же прикрепляю свое подробное резюме ниже.%0A%0AС уважением, [ваше имя]"
@@ -131,11 +135,19 @@ export default function Team() {
             variant="ghost"
             className="font-unbounded font-semibold text-sm uppercase text-accent-foreground hover:text-foreground"
           >
-            <span className="transition-all">стать частью команды</span>
-            <Arrow className="size-4" />
+            <LinkText
+              title={
+                <div className="flex flex-row items-center justify-center gap-2.5 pr-1">
+                  <span className="transition-all">стать частью команды</span>
+                  <Arrow className="size-4" />
+                </div>
+              }
+              classLine="bg-foreground"
+            />
           </Button>
         </Link>
       </div>
+      <div className="bg-background w-full h-16 md:h-26" />
     </main>
   );
 }

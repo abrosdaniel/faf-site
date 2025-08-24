@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { useQuery } from "@tanstack/react-query";
 import directus from "@/services/directus";
@@ -26,6 +27,7 @@ import { SlashIcon } from "lucide-react";
 
 export default function Term() {
   const isMobile = useMediaQuery("(max-width: 768px)");
+  const pathname = usePathname();
   const section3Ref = useRef<HTMLDivElement>(null);
   const text1Ref = useRef<HTMLDivElement>(null);
   const text2Ref = useRef<HTMLDivElement>(null);
@@ -42,41 +44,55 @@ export default function Term() {
   });
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    if (text1Ref.current && text2Ref.current && section3Ref.current) {
-      gsap.fromTo(
-        text1Ref.current,
-        { opacity: 1 },
-        {
-          opacity: 0,
-          scrollTrigger: {
-            trigger: section3Ref.current,
-            start: "30% center",
-            end: "55% center",
-            scrub: true,
-          },
-        }
-      );
+    if (
+      !isLoading &&
+      text1Ref.current &&
+      text2Ref.current &&
+      section3Ref.current
+    ) {
+      const timer = setTimeout(() => {
+        const tl1 = gsap.fromTo(
+          text1Ref.current,
+          { opacity: 1 },
+          {
+            opacity: 0,
+            duration: 1,
+            scrollTrigger: {
+              trigger: section3Ref.current,
+              start: "center center",
+              end: "center center",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+        const tl2 = gsap.fromTo(
+          text2Ref.current,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: 1,
+            scrollTrigger: {
+              trigger: section3Ref.current,
+              start: "center center",
+              end: "center center",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
 
-      gsap.fromTo(
-        text2Ref.current,
-        { opacity: 0 },
-        {
-          opacity: 1,
-          scrollTrigger: {
-            trigger: section3Ref.current,
-            start: "45% center",
-            end: "70% center",
-            scrub: true,
-          },
-        }
-      );
+        return () => {
+          tl1.kill();
+          tl2.kill();
+          ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+        };
+      }, 100);
+
+      return () => {
+        clearTimeout(timer);
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      };
     }
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, [isLoading]);
+  }, [pathname, isLoading]);
 
   if (isLoading) {
     return (
@@ -134,7 +150,9 @@ export default function Term() {
             className="w-full h-auto object-contain"
           />
         </div>
-        <h3 className="text-lg font-unbounded font-bold uppercase">{title}</h3>
+        <h3 className="text-sm md:text-base font-unbounded font-bold uppercase">
+          {title}
+        </h3>
       </div>
     );
   };
@@ -171,11 +189,11 @@ export default function Term() {
             className="w-full h-auto object-cover"
           />
         </div>
-        <div className="flex flex-shrink-0 flex-col md:flex-row gap-6 md:gap-14 items-start md:items-center justify-between px-4 md:px-10 py-14 bg-foreground">
-          <h1 className="text-5xl md:text-6xl font-black font-unbounded uppercase text-background">
+        <div className="flex flex-shrink-0 flex-col md:flex-row gap-6 md:gap-14 items-start md:items-end justify-between px-4 md:px-10 py-14 bg-foreground">
+          <h1 className="text-5xl md:text-[90px] font-black font-unbounded uppercase text-background">
             О нас
           </h1>
-          <h2 className="text-xl font-bold font-unbounded uppercase text-background">
+          <h2 className="text-base md:text-[26px] font-bold font-unbounded uppercase text-background max-w-[760px]">
             настоящее агентство — это не просто посредник, а партнёр и опора
           </h2>
         </div>
@@ -201,19 +219,19 @@ export default function Term() {
         </BreadcrumbList>
       </Breadcrumb>
       <section className="bg-foreground px-4 md:px-10">
-        <PageTopLine numeric="01" />
+        <PageTopLine numeric="01" classLine="bg-white" />
         <div className="flex flex-col font-unbounded font-bold uppercase px-0 md:px-16 py-10">
           <h3 className="text-primary text-center text-3xl md:text-6xl">
             Football Agency of Future –
           </h3>
-          <p className="text-background text-center text-xl md:text-4xl">
+          <p className="text-background text-center text-xl md:text-4xl mb-4 md:mb-10">
             это современное футбольное агентство, основанное двумя молодыми
             энтузиастами
           </p>
         </div>
       </section>
-      <section className="px-4 md:px-10 py-14 space-y-10">
-        <PageTopLine numeric="02" className="border-accent" />
+      <section className="px-4 md:px-10 py-14 space-y-10 mt-4 md:mb-6">
+        <PageTopLine numeric="02" classLine="bg-accent" />
         <div className="flex flex-col md:flex-row-reverse gap-10 md:gap-0">
           {isMobile ? (
             <p>
@@ -244,10 +262,22 @@ export default function Term() {
               </p>
             )}
             <div className="space-y-6">
-              <h3 className="text-center text-2xl font-unbounded font-bold uppercase">
-                Мы создаём <br />
-                <span className="text-primary">новое поколение</span> <br />
-                агентской работы:
+              <h3 className="text-center md:text-left text-2xl font-unbounded font-bold uppercase">
+                {isMobile ? (
+                  <p>
+                    Мы создаём
+                    <br />
+                    <span className="text-primary">новое поколение</span>
+                    <br />
+                    агентской работы:
+                  </p>
+                ) : (
+                  <p>
+                    Мы создаём{" "}
+                    <span className="text-primary">новое поколение</span>{" "}
+                    агентской работы:
+                  </p>
+                )}
               </h3>
               <div className="border-t border-accent">
                 <S2Items
@@ -288,18 +318,14 @@ export default function Term() {
               className="w-full h-auto object-contain"
             />
           </div>
-          <div className="relative text-center text-xl md:text-5xl text-background font-unbounded font-bold uppercase">
-            <h3 ref={text1Ref} style={{ opacity: 0 }}>
+          <div className="relative text-center text-lg md:text-[40px] text-background font-unbounded font-bold uppercase">
+            <h3 ref={text1Ref}>
               FAF родился{" "}
               <span className="text-primary">из дружбы и общего опыта.</span> Мы
               с партнером — друзья с детства, оба жили футболом и видели, как
               важно для игрока иметь поддержку, особенно на старте.
             </h3>
-            <h3
-              ref={text2Ref}
-              className="absolute inset-0 translate-y-1/4"
-              style={{ opacity: 0 }}
-            >
+            <h3 ref={text2Ref} className="absolute inset-0 translate-y-1/4">
               Именно поэтому{" "}
               <span className="text-primary">
                 решили создать агентство, которому бы сами когда-то доверились
@@ -323,19 +349,25 @@ export default function Term() {
           classNameCircle="w-3/5 md:w-1/6 top-auto bottom-0 translate-y-2/3"
         />
       </section>
-      <section className="py-14 space-y-10">
-        <PageTopLine numeric="03" className="border-accent px-4 md:px-10" />
+      <section className="py-14 space-y-10 mt-4">
+        <PageTopLine
+          numeric="03"
+          className="px-4 md:px-10"
+          classLine="bg-accent"
+        />
         <h3 className="text-center md:text-left text-2xl md:text-6xl font-unbounded font-bold uppercase px-4 md:px-10">
           Мы уверены: настоящее агентство{" "}
           <span className="text-primary md:text-foreground">
             — это не просто посредник, а партнёр и опора.
           </span>{" "}
-          <span className="text-foreground md:block md:text-primary md:mt-10 md:text-4xl">
+          <span className="text-foreground md:block md:text-primary md:mt-10 md:pb-4 md:text-4xl">
             Именно таким агентством мы и строим FAF.
           </span>
         </h3>
-        <hr className="border-accent md:hidden px-4 md:px-10" />
-        <div className="flex flex-col gap-5 md:flex-row px-4 md:px-10">
+        <div className="md:hidden px-4 md:px-10">
+          <div className="h-px w-full bg-accent" />
+        </div>
+        <div className="flex flex-col gap-5 md:flex-row px-4 md:px-10 pb-4 md:pb-11">
           <p className="md:w-1/3">
             <span className="font-bold uppercase">Сегодня FAF</span> — это
             команда молодых специалистов и опытных наставников, объединённых
@@ -359,6 +391,7 @@ export default function Term() {
           ))}
         </Marquee>
       </section>
+      <div className="bg-background w-full h-16 md:h-26" />
     </main>
   );
 }

@@ -197,17 +197,17 @@ export default function Anketa() {
           />
         </div>
         <div className="flex flex-shrink-0 flex-col md:flex-row gap-6 md:gap-14 items-start md:items-end justify-between px-4 md:px-10 py-14 bg-foreground">
-          <h1 className="text-5xl md:text-7xl font-black font-unbounded uppercase text-background">
+          <h1 className="text-5xl md:text-[90px] font-black font-unbounded uppercase text-background">
             Анкета
           </h1>
-          <h2 className="text-xl font-bold font-unbounded uppercase text-background">
+          <h2 className="text-base md:text-[26px] font-bold font-unbounded uppercase text-background max-w-[590px]">
             Все анкеты рассматриваются в течение{" "}
             <span className="text-primary">14 дней</span>
           </h2>
         </div>
       </div>
       <div className="flex flex-col gap-10 py-10">
-        <Breadcrumb className="px-4 md:px-10">
+        <Breadcrumb className="px-4 md:px-10 md:mb-10">
           <BreadcrumbList className="uppercase text-sm">
             <BreadcrumbItem>
               <BreadcrumbLink
@@ -225,8 +225,11 @@ export default function Anketa() {
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
-        <PageTopLine className="border-accent px-4 md:px-10" />
-        <p className="text-base text-foreground px-4 md:px-10">
+        <PageTopLine
+          className="border-accent px-4 md:px-10"
+          classLine="bg-accent"
+        />
+        <p className="text-base md:text-lg text-foreground px-4 md:px-10">
           Если вы хотите стать клиентом футбольного агентства FAF, необходимо
           заполнить все поля.
           <br />
@@ -447,6 +450,7 @@ export default function Anketa() {
           </form>
         </Form>
       </div>
+      <div className="bg-background w-full h-16 md:h-26" />
     </main>
   );
 }

@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { Mail } from "@/assets/icons/Icons";
+import { LinkText } from "../shared/Text";
 
 export default function TeamAgency({
   data,
@@ -60,12 +61,16 @@ export default function TeamAgency({
         <div className="hidden md:flex flex-1/5"></div>
         <div className="flex md:flex-2/5 flex-row justify-between items-center font-semibold text-xs md:text-lg">
           <p>{position}</p>
-          <Link
-            href={`mailto:${mail}`}
-            className="flex flex-row gap-2 items-center whitespace-nowrap"
-          >
-            <Mail className="h-3" />
-            <span>{mail}</span>
+          <Link href={`mailto:${mail}`}>
+            <LinkText
+              title={
+                <div className="flex flex-row gap-2 items-center whitespace-nowrap">
+                  <Mail className="h-3" />
+                  <span>{mail}</span>
+                </div>
+              }
+              classLine="bg-primary"
+            />
           </Link>
         </div>
       </div>

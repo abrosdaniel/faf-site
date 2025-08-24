@@ -3,6 +3,7 @@
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { useScroll } from "@/hooks/use-scroll-screen";
 import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -14,6 +15,7 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 import { CircleLine } from "../shared/FootballField";
+import { RotateText } from "../shared/Text";
 
 import {
   Arrow,
@@ -28,6 +30,13 @@ export default function Menu() {
   const isMobile = useMediaQuery("(max-width: 1280px)");
   const isTablet = useMediaQuery("(max-width: 768px)");
   const isBottom = useScroll("y>64");
+  const pathname = usePathname();
+
+  const isCurrentPage = (path: string) => {
+    if (path === "/" && pathname === "/") return true;
+    if (path !== "/" && pathname.startsWith(path)) return true;
+    return false;
+  };
 
   return (
     <nav
@@ -39,23 +48,73 @@ export default function Menu() {
       <div className="absolute h-1/2 border-r border-inherit bottom-0 right-[30%] xl:right-[35%]" />
       <div
         className={`flex py-1.5 md:py-2.5 px-4 md:px-10 flex-row items-center justify-between ${
-          isBottom ? "[&_a]:text-foreground [&_a]:hover:text-primary" : ""
+          isBottom
+            ? "[&_a]:text-foreground [&_a]:hover:text-foreground"
+            : "[&_a]:hover:text-primary"
         }`}
       >
         <div className="flex w-[30%] xl:w-[35%] flex-row items-center gap-8 justify-start">
           {!isMobile && (
             <>
               <Button variant="link">
-                <Link href="/">Главная</Link>
+                <Link href="/">
+                  <RotateText
+                    title="Главная"
+                    className={
+                      isCurrentPage("/")
+                        ? isBottom
+                          ? "text-foreground"
+                          : "text-primary"
+                        : ""
+                    }
+                    classLine={isBottom ? "bg-foreground" : "bg-primary"}
+                  />
+                </Link>
               </Button>
               <Button variant="link">
-                <Link href="/players">Игроки</Link>
+                <Link href="/players">
+                  <RotateText
+                    title="Игроки"
+                    className={
+                      isCurrentPage("/players")
+                        ? isBottom
+                          ? "text-foreground"
+                          : "text-primary"
+                        : ""
+                    }
+                    classLine={isBottom ? "bg-foreground" : "bg-primary"}
+                  />
+                </Link>
               </Button>
               <Button variant="link">
-                <Link href="/about">О нас</Link>
+                <Link href="/about">
+                  <RotateText
+                    title="О нас"
+                    className={
+                      isCurrentPage("/about")
+                        ? isBottom
+                          ? "text-foreground"
+                          : "text-primary"
+                        : ""
+                    }
+                    classLine={isBottom ? "bg-foreground" : "bg-primary"}
+                  />
+                </Link>
               </Button>
               <Button variant="link">
-                <Link href="/news">Новости</Link>
+                <Link href="/news">
+                  <RotateText
+                    title="Новости"
+                    className={
+                      isCurrentPage("/news")
+                        ? isBottom
+                          ? "text-foreground"
+                          : "text-primary"
+                        : ""
+                    }
+                    classLine={isBottom ? "bg-foreground" : "bg-primary"}
+                  />
+                </Link>
               </Button>
             </>
           )}
@@ -69,10 +128,34 @@ export default function Menu() {
           {!isMobile ? (
             <>
               <Button variant="link">
-                <Link href="/team">Команда</Link>
+                <Link href="/team">
+                  <RotateText
+                    title="Команда"
+                    className={
+                      isCurrentPage("/team")
+                        ? isBottom
+                          ? "text-foreground"
+                          : "text-primary"
+                        : ""
+                    }
+                    classLine={isBottom ? "bg-foreground" : "bg-primary"}
+                  />
+                </Link>
               </Button>
               <Button variant="link">
-                <Link href="#footer">Контакты</Link>
+                <Link href="#footer">
+                  <RotateText
+                    title="Контакты"
+                    className={
+                      isCurrentPage("#footer")
+                        ? isBottom
+                          ? "text-foreground"
+                          : "text-primary"
+                        : ""
+                    }
+                    classLine={isBottom ? "bg-foreground" : "bg-primary"}
+                  />
+                </Link>
               </Button>
               <Link href="/form">
                 <Button icon="arrow" className="p-4">
@@ -100,9 +183,9 @@ export default function Menu() {
                       <LogoIcon className="size-24" />
                     </Link>
                   </SheetClose>
-                  <div className="absolute right-9 top-13">
+                  <div className="absolute right-9 top-12">
                     <SheetClose asChild>
-                      <Button variant="ghost" size="icon">
+                      <Button variant="ghost" size="icon" className="size-9">
                         <Cross className="text-primary size-6" />
                       </Button>
                     </SheetClose>

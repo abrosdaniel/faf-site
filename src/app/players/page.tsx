@@ -111,16 +111,16 @@ export default function Players() {
           />
         </div>
         <div className="flex flex-shrink-0 flex-col md:flex-row gap-6 md:gap-14 items-start md:items-end justify-between px-4 md:px-10 py-14 bg-foreground">
-          <h1 className="text-5xl md:text-7xl font-black font-unbounded uppercase text-background">
+          <h1 className="text-5xl md:text-[90px] font-black font-unbounded uppercase text-background">
             Игроки FAF
           </h1>
-          <h2 className="text-xl font-bold font-unbounded uppercase text-background">
+          <h2 className="text-base md:text-[26px] font-bold font-unbounded uppercase text-background max-w-[510px]">
             Состав игроков под нашим сопровождением
           </h2>
         </div>
       </div>
       <div className="flex flex-col gap-10 py-10">
-        <Breadcrumb className="px-4 md:px-10">
+        <Breadcrumb className="px-4 md:px-10 md:mb-10">
           <BreadcrumbList className="uppercase text-sm">
             <BreadcrumbItem>
               <BreadcrumbLink
@@ -138,17 +138,17 @@ export default function Players() {
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
-        <div className="flex flex-col md:flex-row gap-6 md:gap-5 px-4 md:px-10">
+        <div className="flex flex-col md:flex-row gap-6 md:gap-5 px-4 md:px-10 md:mb-10">
           <div className="relative">
             <Input
               id="search"
-              className="peer ps-9 font-unbounded text-sm py-4 h-full"
+              className="peer ps-9 focus:ps-1 font-unbounded text-sm py-4 h-full transition-all duration-300"
               placeholder="Поиск игрока"
               type="search"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
-            <div className="text-primary pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 peer-disabled:opacity-50">
+            <div className="text-primary pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 peer-focus:opacity-0 transition-all duration-300">
               <SearchIcon size={22} />
             </div>
           </div>
@@ -165,10 +165,10 @@ export default function Players() {
             <TabsItem value="Вратарь" title="Вратари" />
           </ToggleGroup>
         </div>
-        <PageTopLine className="border-accent px-4 md:px-10" />
+        <PageTopLine className="px-4 md:px-10" classLine="bg-accent" />
         <h2
           id="plrs"
-          className="text-5xl md:text-7xl font-semibold font-unbounded uppercase text-foreground mx-auto md:mx-0 px-4 md:px-10"
+          className="text-4xl md:text-7xl font-semibold font-unbounded uppercase text-foreground mx-auto md:mx-0 px-4 md:px-10"
         >
           Все игроки
         </h2>
@@ -180,6 +180,7 @@ export default function Players() {
           className="px-4 md:px-10"
         />
       </div>
+      <div className="bg-background w-full h-16 md:h-26" />
     </main>
   );
 }

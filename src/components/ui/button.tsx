@@ -10,7 +10,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "font-unbounded font-semibold text-xs uppercase bg-primary text-primary-foreground hover:bg-primary/90",
+          "font-unbounded font-semibold text-xs uppercase bg-primary text-primary-foreground hover:bg-primary/80",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         outline:

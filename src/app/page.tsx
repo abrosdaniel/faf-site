@@ -226,7 +226,7 @@ export default function Home() {
         className="group p-0 h-full md:min-w-48 bg-foreground text-background data-[state=on]:bg-primary data-[state=on]:text-primary-foreground hover:bg-foreground hover:text-background hover:opacity-90 cursor-pointer"
       >
         <div className="flex flex-row items-center justify-center gap-2.5 w-full px-11 py-4 uppercase font-unbounded font-semibold text-sm md:text-xl">
-          <Arrow className="size-4 group-hover:rotate-45 group-data-[state=off]:hidden" />
+          <Arrow className="size-0 group-data-[state=on]:size-4 group-data-[state=off]:group-hover:size-4 group-hover:rotate-45 transition-all duration-300" />
           <span>{title}</span>
         </div>
       </ToggleGroupItem>
@@ -256,10 +256,14 @@ export default function Home() {
             </div>
             <div className="px-4 md:px-10 py-14 bg-foreground flex-shrink-0 font-unbounded text-background flex flex-col gap-6">
               <h1 className="text-5xl font-black uppercase text-center">
-                Football Agency of Future
+                Football
+                <br />
+                Agency
+                <br />
+                of Future
               </h1>
               <div className="flex flex-row items-end gap-10">
-                <p className="text-sm font-semibold">
+                <p className="text-sm font-semibold max-w-64">
                   Индивидуальный подход, цифровые инструменты и стратегическое
                   мышление
                 </p>
@@ -281,7 +285,7 @@ export default function Home() {
                 sizes="100%"
                 className="w-full h-auto object-cover"
               />
-              <div className="flex flex-col gap-16 absolute bottom-20 left-0 w-full px-10 font-unbounded text-white z-20">
+              <div className="flex flex-col gap-14 absolute bottom-20 left-0 w-full px-10 font-unbounded text-white z-20">
                 <div className="flex flex-row font-bold justify-between">
                   <p className="text-2xl uppercase">
                     футбольное агентство
@@ -310,21 +314,21 @@ export default function Home() {
           </>
         )}
       </div>
-      <Marquee speed={25}>
+      <Marquee speed={25} className="bg-background">
         <MarqueeItems variant="text" text="Честность и прозрачность" />
         <MarqueeItems variant="text" text="Этика и партнёрство" />
         <MarqueeItems variant="text" text="Стратегические решения" />
         <MarqueeItems variant="text" text="Долгосрочная перспектива" />
         <MarqueeItems variant="text" text="Комплексная поддержка" />
       </Marquee>
-      <section className="bg-foreground py-14 space-y-10 px-4 md:px-10">
-        <PageTopLine numeric="01" />
-        <h3 className="text-white text-center md:text-left text-xl md:text-4xl font-unbounded font-bold uppercase">
+      <section className="bg-foreground py-14 md:py-20 space-y-10 px-4 md:px-10">
+        <PageTopLine numeric="01" classLine="bg-white" />
+        <h3 className="text-white text-center md:text-left text-xl md:text-4xl font-unbounded font-bold uppercase md:pb-4">
           Мы верим, что <span className="text-primary">будущее футбола</span> —
           за умными решениями, этикой и партнёрством
         </h3>
-        <div className="flex flex-col gap-10 md:flex-row text-white">
-          <p className="md:w-1/3">
+        <div className="flex flex-col gap-10 md:flex-row text-white md:justify-between">
+          <p className="md:w-1/3 md:max-w-117.5">
             Football Agency of Future — это агентство нового поколения, которое
             ставит в центр внимания развитие игрока и его карьеру в долгосрочной
             перспективе.
@@ -337,24 +341,22 @@ export default function Home() {
           <div className="hidden md:flex justify-center items-center w-1/3">
             <div className="border-l border-white h-full" />
           </div>
-          <p className="md:w-1/3">
+          <p className="md:w-1/3 md:max-w-117.5">
             Наша работа строится на честности, прозрачности и уважении к каждому
             клиенту.
             <br />
             <br />
             Мы создаём индивидуальные маршруты роста, учитывая цели, потенциал и
-            личные ценности футболиста, и сопровождаем на каждом этапе — от
-            первых шагов до выхода за пределы поля.
+            личные ценности футболиста, и сопровождаем на каждом этапе —
+            <br />
+            от первых шагов до выхода за пределы поля.
           </p>
         </div>
       </section>
-      <section className="py-14 space-y-10 px-4 md:px-10">
-        <PageTopLine numeric="02" className="border-accent" />
-        <div className="space-y-6 md:space-y-10">
-          <h2
-            id="plrs"
-            className="text-4xl md:text-7xl font-bold font-unbounded uppercase text-foreground text-center md:text-left"
-          >
+      <section className="bg-background py-14 md:py-20 space-y-10 px-4 md:px-10">
+        <PageTopLine numeric="02" classLine="bg-accent" />
+        <div className="space-y-6 md:space-y-14">
+          <h2 className="text-4xl md:text-7xl font-bold font-unbounded uppercase text-foreground text-center md:text-left">
             Игроки FAF
           </h2>
           <PlayersCard
@@ -364,7 +366,7 @@ export default function Home() {
           />
         </div>
       </section>
-      <Marquee speed={25} className="bg-foreground py-14">
+      <Marquee speed={25} className="bg-foreground py-14 md:py-20">
         {home.partners.map((item: any) => (
           <MarqueeItems
             key={item.id}
@@ -373,15 +375,15 @@ export default function Home() {
           />
         ))}
       </Marquee>
-      <section className="bg-foreground pb-14 space-y-10 px-4 md:px-10">
+      <section className="bg-foreground pb-14 md:pb-20 space-y-10 px-4 md:px-10">
         <div className="space-y-10 md:space-y-14">
-          <h3 className="text-white text-center md:text-left text-xl md:text-4xl font-unbounded font-bold uppercase">
-            Мы не просто подписываем контракты —
+          <h3 className="text-white text-center md:text-left text-base md:text-[40px] font-unbounded font-bold uppercase">
+            Мы не просто подписываем контракты —{" "}
             <span className="text-primary">мы помогаем футболисту</span>{" "}
             выстроить осознанную карьеру
           </h3>
-          <div className="flex flex-col gap-6 md:gap-20 md:flex-row text-white">
-            <p className="md:w-1/3">
+          <div className="flex flex-col gap-6 md:gap-20 md:flex-row text-white md:justify-between">
+            <p className="md:w-1/3 md:max-w-80">
               Каждое решение — стратегически выверено и согласовано с игроком.
               <br />
               Наши услуги охватывают все этапы:
@@ -421,13 +423,10 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="py-14 space-y-10 px-4 md:px-10">
-        <PageTopLine numeric="03" className="border-accent" />
+      <section className="bg-background py-14 md:py-20 space-y-10 px-4 md:px-10">
+        <PageTopLine numeric="03" classLine="bg-accent" />
         <div className="space-y-6 md:space-y-10">
-          <h2
-            id="plrs"
-            className="text-4xl md:text-7xl font-bold font-unbounded uppercase text-foreground text-center md:text-left"
-          >
+          <h2 className="text-4xl md:text-7xl font-bold font-unbounded uppercase text-foreground text-center md:text-left md:pb-4">
             новости агентства
           </h2>
         </div>
@@ -518,21 +517,21 @@ export default function Home() {
               title={news.posts[2].title}
               description={news.posts[2].description}
               className="flex-1/3"
-              classImage="aspect-square"
+              classImage="aspect-[6/5]"
             />
           </div>
         )}
       </section>
-      <section className="h-screen relative overflow-hidden">
-        <div className="relative w-full h-full">
-          <Image
-            src="/assets/images/home-trigger.png"
-            alt="Trigger"
-            fill
-            sizes="100%"
-            className="object-cover"
-          />
-        </div>
+      <div className="fixed top-1/2 left-0 -translate-y-1/2 -z-10 w-screen aspect-[9/16] md:aspect-[16/9]">
+        <Image
+          src="/assets/images/home-trigger.png"
+          alt="Trigger"
+          fill
+          sizes="100%"
+          className="object-cover w-full h-full fixed top-0 left-0"
+        />
+      </div>
+      <section className="w-screen aspect-[9/16] md:aspect-[16/9] relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-row items-center justify-between w-full">
           <div className="h-[calc(100vw/1.95)] md:h-[calc(100vw/7)] w-7 md:w-22 border-y border-white border-r" />
           <CircleLine
@@ -543,13 +542,21 @@ export default function Home() {
         </div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-px bg-white h-full" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-center font-unbounded font-bold uppercase text-xl md:text-6xl whitespace-nowrap">
-          <span className="text-primary">Создаём карьеру.</span>
+          <span className="hover:text-primary transition-all">
+            Создаём карьеру.
+          </span>
           <br />
-          <span>Строим будущее.</span>
+          <span className="hover:text-primary transition-all">
+            Строим будущее.
+          </span>
         </div>
       </section>
-      <section className="py-14 space-y-10">
-        <PageTopLine numeric="04" className="border-accent px-4 md:px-10" />
+      <section className="bg-background py-14 md:py-20 space-y-10">
+        <PageTopLine
+          numeric="04"
+          className=" px-4 md:px-10"
+          classLine="bg-accent"
+        />
         <div className="space-y-6 md:space-y-10">
           <h2 className="text-4xl md:text-7xl font-bold font-unbounded uppercase text-foreground text-center md:text-left px-4 md:px-10">
             Наша команда
@@ -571,6 +578,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <div className="bg-background w-full h-16 md:h-26" />
     </main>
   );
 }
