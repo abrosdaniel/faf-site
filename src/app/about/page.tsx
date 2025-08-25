@@ -190,7 +190,7 @@ export default function Term() {
             className="w-full h-auto object-cover"
           />
         </div>
-        <div className="flex flex-shrink-0 flex-col md:flex-row gap-6 md:gap-14 items-start md:items-end justify-between px-4 md:px-10 py-14 bg-foreground">
+        <div className="flex flex-shrink-0 flex-col md:flex-row gap-6 md:gap-14 items-start md:items-end justify-between px-4 md:px-10 py-4 md:py-14 bg-foreground">
           <h1 className="text-[42px] leading-[1.1] md:leading-[1] md:text-[90px] font-black font-unbounded uppercase text-background">
             О нас
           </h1>

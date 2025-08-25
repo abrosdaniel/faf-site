@@ -89,7 +89,7 @@ export default function Term() {
             className="w-full h-auto object-cover"
           />
         </div>
-        <div className="px-4 md:px-10 py-14 bg-foreground flex-shrink-0">
+        <div className="px-4 md:px-10 py-4 md:py-14 bg-foreground flex-shrink-0">
           <h1 className="text-xl md:text-6xl font-black font-unbounded uppercase text-background">
             политика конфиденциальности
           </h1>
