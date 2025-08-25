@@ -176,7 +176,7 @@ export default function Menu() {
                 className="bg-foreground border-0 w-screen font-unbounded flex flex-col gap-0 justify-between"
               >
                 <SheetTitle className="sr-only"></SheetTitle>
-                <div className="relative flex flex-col justify-center items-center pt-7 px-4">
+                <div className="relative flex flex-col justify-center items-center pt-4 px-4">
                   <div className="w-full h-5 border-t border-x" />
                   <SheetClose asChild>
                     <Link href="/">
@@ -191,7 +191,7 @@ export default function Menu() {
                     </SheetClose>
                   </div>
                 </div>
-                <div className="text-background flex flex-col gap-4 [&_a]:text-2xl [&_a]:font-bold">
+                <div className="text-background flex flex-col gap-2 [&_a]:text-[22px] [&_a]:font-bold">
                   <SheetClose asChild>
                     <Button variant="link" asChild>
                       <Link href="/">главная</Link>
@@ -223,7 +223,7 @@ export default function Menu() {
                     </Button>
                   </SheetClose>
                 </div>
-                <div className="flex flex-col gap-6 pb-14">
+                <div className="flex flex-col gap-6 pb-4">
                   <CircleLine
                     className="flex justify-center items-center pt-12"
                     classNameCircle={cn(

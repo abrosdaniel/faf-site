@@ -86,7 +86,7 @@ export default function Players() {
         className="group p-0 h-full md:min-w-48 bg-foreground text-background data-[state=on]:bg-primary data-[state=on]:text-primary-foreground hover:bg-foreground hover:text-background hover:opacity-90 cursor-pointer"
       >
         <div className="flex flex-row items-center justify-center gap-2.5 w-full px-11 py-4 uppercase font-unbounded font-semibold text-xs">
-          <Arrow className="size-4 group-hover:rotate-45 group-data-[state=off]:hidden" />
+          <Arrow className="size-0 group-data-[state=on]:size-4 group-data-[state=off]:group-hover:size-4 group-hover:rotate-45 transition-all duration-300" />
           <span>{title}</span>
         </div>
       </ToggleGroupItem>
