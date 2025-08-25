@@ -1,16 +1,22 @@
 import type { Metadata } from "next";
 
+const meta = {
+  title: "Политика конфиденциальности | Защита персональных данных",
+  description:
+    "Политика конфиденциальности. Принципы обработки и защиты персональных данных клиентов. Прозрачность и безопасность информации.",
+};
+
 export const metadata: Metadata = {
-  title: "Политика конфиденциальности",
-  description: "Политика конфиденциальности футбольного агентства FAF",
+  title: meta.title,
+  description: meta.description,
   openGraph: {
-    title: "Политика конфиденциальности",
-    description: "Политика конфиденциальности футбольного агентства FAF",
-    url: "https://f-a-f.ru/policy",
+    title: meta.title,
+    description: meta.description,
+    url: "https://f-a-f.ru/term",
   },
   twitter: {
-    title: "Политика конфиденциальности",
-    description: "Политика конфиденциальности футбольного агентства FAF",
+    title: meta.title,
+    description: meta.description,
   },
 };
 

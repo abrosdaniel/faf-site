@@ -255,7 +255,7 @@ export default function Home() {
                 нового поколения
               </h3>
             </div>
-            <div className="px-4 md:px-10 py-14 bg-foreground flex-shrink-0 font-unbounded text-background flex flex-col gap-6">
+            <div className="px-4 py-4 bg-foreground flex-shrink-0 font-unbounded text-background flex flex-col gap-6">
               <h1 className="text-[42px] leading-[1.1] font-black uppercase text-center">
                 Football
                 <br />

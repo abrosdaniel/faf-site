@@ -1,16 +1,22 @@
 import type { Metadata } from "next";
 
+const meta = {
+  title: "Заявка в футбольное агентство | Начни карьеру футболиста",
+  description:
+    "Подай заявку в FAF и получи профессиональное представительство. Анкета игрока для молодых талантов и опытных футболистов.",
+};
+
 export const metadata: Metadata = {
-  title: "Анкета для игроков",
-  description: "Анкета для игроков футбольного агентства FAF",
+  title: meta.title,
+  description: meta.description,
   openGraph: {
-    title: "Анкета для игроков",
-    description: "Анкета для игроков футбольного агентства FAF",
+    title: meta.title,
+    description: meta.description,
     url: "https://f-a-f.ru/form",
   },
   twitter: {
-    title: "Анкета для игроков",
-    description: "Анкета для игроков футбольного агентства FAF",
+    title: meta.title,
+    description: meta.description,
   },
 };
 

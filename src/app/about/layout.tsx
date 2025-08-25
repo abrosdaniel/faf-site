@@ -1,16 +1,22 @@
 import type { Metadata } from "next";
 
+const meta = {
+  title: "О нас | Надежное футбольное агентство с международным опытом",
+  description:
+    "FAF Football Agency - современное футбольное агентство с инновационным подходом. Наша миссия, ценности и принципы работы. Профессиональные услуги для футболистов и клубов.",
+};
+
 export const metadata: Metadata = {
-  title: "О нас",
-  description: "О футбольном агентстве FAF",
+  title: meta.title,
+  description: meta.description,
   openGraph: {
-    title: "О нас",
-    description: "О футбольном агентстве FAF",
+    title: meta.title,
+    description: meta.description,
     url: "https://f-a-f.ru/about",
   },
   twitter: {
-    title: "О нас",
-    description: "О футбольном агентстве FAF",
+    title: meta.title,
+    description: meta.description,
   },
 };
 

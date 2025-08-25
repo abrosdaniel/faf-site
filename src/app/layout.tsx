@@ -16,12 +16,18 @@ export const viewport: Viewport = {
   userScalable: false,
 };
 
+const meta = {
+  title: "Футбольное агентство будущего | Поиск талантов и трансферы",
+  description:
+    "FAF Football Agency - международное футбольное агентство. Поиск молодых талантов, продвижение игроков, трансферы и контракты. Профессиональное представительство футболистов в России и Европе.",
+};
+
 export const metadata: Metadata = {
   title: {
-    default: "Главная | FAF Football Agency",
+    default: meta.title,
     template: "%s | FAF Football Agency",
   },
-  description: "Футбольное агентство FAF",
+  description: meta.description,
   applicationName: "FAF Football Agency",
   generator: "Next.js",
   keywords: [
@@ -98,8 +104,8 @@ export const metadata: Metadata = {
   publisher: "FAF Agency",
   metadataBase: new URL("https://f-a-f.ru"),
   openGraph: {
-    title: "Главная",
-    description: "Футбольное агентство FAF",
+    title: meta.title,
+    description: meta.description,
     url: "https://f-a-f.ru",
     siteName: "FAF Football Agency",
     images: [
@@ -115,8 +121,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Главная",
-    description: "Футбольное агентство FAF",
+    title: meta.title,
+    description: meta.description,
     images: ["https://f-a-f.ru/assets/images/preview.png"],
   },
   icons: {

@@ -1,16 +1,22 @@
 import type { Metadata } from "next";
 
+const meta = {
+  title: "Наша команда | Профессиональные футбольные агенты и скауты",
+  description:
+    "Команда экспертов FAF. Опытные футбольные агенты, скауты и специалисты по развитию игроков. Профессионалы с международным опытом работы.",
+};
+
 export const metadata: Metadata = {
-  title: "Команда агентства",
-  description: "Команда агентства футбольного агентства FAF",
+  title: meta.title,
+  description: meta.description,
   openGraph: {
-    title: "Команда агентства",
-    description: "Команда агентства футбольного агентства FAF",
+    title: meta.title,
+    description: meta.description,
     url: "https://f-a-f.ru/team",
   },
   twitter: {
-    title: "Команда агентства",
-    description: "Команда агентства футбольного агентства FAF",
+    title: meta.title,
+    description: meta.description,
   },
 };
 
