@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { Viewport } from "next";
 import { unbounded, golosText } from "@/assets/fonts/fonts";
 import "@/assets/styles/globals.css";
 import { Providers } from "./providers";
@@ -7,6 +8,13 @@ import Menu from "@/components/sections/Menu";
 import Footer from "@/components/sections/Footer";
 import Loader from "@/components/sections/Loader";
 import YandexMetrika from "@/components/yandex/YandexMetrika";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  userScalable: false,
+};
 
 export const metadata: Metadata = {
   title: {

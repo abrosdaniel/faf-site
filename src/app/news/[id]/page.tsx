@@ -51,6 +51,7 @@ export default async function NewsArticlePage({ params }: Props) {
         <div className="absolute top-0 left-0 bg-gradient-to-b from-foreground/90 via-transparent to-transparent z-10 w-full h-1/5" />
         <div className="absolute bottom-0 left-0 bg-gradient-to-t from-foreground/90 via-transparent to-transparent z-10 w-full h-4/5 md:h-2/5" />
         <Image
+          priority
           src={`${directus.url}assets/${post.cover}`}
           alt={post.title}
           fill

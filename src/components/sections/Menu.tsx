@@ -173,7 +173,7 @@ export default function Menu() {
               </SheetTrigger>
               <SheetContent
                 side="right"
-                className="bg-foreground border-0 w-screen font-unbounded flex flex-col gap-14"
+                className="bg-foreground border-0 w-screen font-unbounded flex flex-col gap-0 justify-between"
               >
                 <SheetTitle className="sr-only"></SheetTitle>
                 <div className="relative flex flex-col justify-center items-center pt-7 px-4">
@@ -223,7 +223,7 @@ export default function Menu() {
                     </Button>
                   </SheetClose>
                 </div>
-                <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-6 pb-14">
                   <CircleLine
                     className="flex justify-center items-center pt-12"
                     classNameCircle={cn(

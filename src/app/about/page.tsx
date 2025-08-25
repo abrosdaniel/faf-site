@@ -173,11 +173,12 @@ export default function Term() {
 
   return (
     <main>
-      <div className="h-screen flex flex-col">
+      <div className="h-dvh flex flex-col">
         <div className="relative w-full flex-1">
           <div className="absolute top-0 left-0 bg-gradient-to-b from-foreground/90 via-transparent to-transparent z-10 w-full h-1/5" />
           <div className="absolute bottom-0 left-0 bg-gradient-to-t from-foreground/90 via-transparent to-transparent z-10 w-full h-4/5 md:h-2/5" />
           <Image
+            priority
             src={
               isMobile
                 ? `${directus.url}assets/${about.cover_mob}`
@@ -190,7 +191,7 @@ export default function Term() {
           />
         </div>
         <div className="flex flex-shrink-0 flex-col md:flex-row gap-6 md:gap-14 items-start md:items-end justify-between px-4 md:px-10 py-14 bg-foreground">
-          <h1 className="text-5xl md:text-[90px] font-black font-unbounded uppercase text-background">
+          <h1 className="text-[42px] leading-[1.1] md:leading-[1] md:text-[90px] font-black font-unbounded uppercase text-background">
             О нас
           </h1>
           <h2 className="text-base md:text-[26px] font-bold font-unbounded uppercase text-background max-w-[760px]">

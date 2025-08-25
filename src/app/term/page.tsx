@@ -72,11 +72,12 @@ export default function Term() {
 
   return (
     <main>
-      <div className="h-screen flex flex-col">
+      <div className="h-dvh flex flex-col">
         <div className="relative w-full flex-1">
           <div className="absolute top-0 left-0 bg-gradient-to-b from-foreground/90 via-transparent to-transparent z-10 w-full h-1/5" />
           <div className="absolute bottom-0 left-0 bg-gradient-to-t from-foreground/90 via-transparent to-transparent z-10 w-full h-4/5 md:h-2/5" />
           <Image
+            priority
             src={
               isMobile
                 ? `${directus.url}assets/${terms.cover_mob}`
